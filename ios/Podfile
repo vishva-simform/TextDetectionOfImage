@@ -45,6 +45,9 @@ target 'TextDetection' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  # To recognize Latin script
+pod 'GoogleMLKit/TextRecognition', '3.2.0'
+
   target 'TextDetectionTests' do
     inherit! :complete
     # Pods for testing

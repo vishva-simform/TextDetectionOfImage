@@ -11,6 +11,7 @@ buildscript {
         ndkVersion = "23.1.7779620"
     }
     repositories {
+        mavenLocal()
         google()
         mavenCentral()
     }
