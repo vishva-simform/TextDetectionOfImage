@@ -13,7 +13,8 @@ import {recognizeImage} from './ImageDetailsUtils';
 
 const ImageDetailsScreen = () => {
   const route = useRoute<RouteProp<ImageDetailRouteType, 'imageDetails'>>();
-  const [response, setResponse] = useState<Array<responseType>>();
+  const [response, setResponse] = useState<Array<responseType>>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const uri = route?.params?.uri;
   const navigation = useNavigation();
 
@@ -27,11 +28,12 @@ const ImageDetailsScreen = () => {
     if (url) {
       try {
         const result = await recognizeImage(url);
-
+        setIsLoading(false);
         if (result?.blocks?.length > 0) {
           setResponse(result?.blocks);
         }
       } catch (error) {
+        setIsLoading(false);
         console.log(error);
       }
     }
@@ -45,7 +47,7 @@ const ImageDetailsScreen = () => {
         onPress={() => navigation.goBack()}
       />
       <View style={styles.outerView}>
-        <Text style={styles.title}>Image:</Text>
+        <Text style={styles.titleImage}>Image:</Text>
         <View style={styles.imageContainer}>
           <Image
             source={{uri}}
@@ -53,16 +55,22 @@ const ImageDetailsScreen = () => {
             resizeMode="contain"
           />
         </View>
-        <Text style={styles.title}>Output:</Text>
+        <Text style={styles.titleResult}>Output:</Text>
         <ScrollView style={styles.imageContainer}>
-          {response ? (
+          {response?.length !== 0 ? (
             <View style={styles.resultWrapper}>
-              {response?.map(block => {
-                return <Text style={styles.textStyle}>{block?.text}</Text>;
+              {response?.map((block, index) => {
+                return (
+                  <Text style={styles.textStyle} key={index}>
+                    {block?.text}
+                  </Text>
+                );
               })}
             </View>
+          ) : isLoading ? (
+            <Text style={styles.titleResult}>Please Wait...</Text>
           ) : (
-            <Text>Something went wrong</Text>
+            <Text style={styles.titleResult}>Sorry!🙁 No text found</Text>
           )}
         </ScrollView>
       </View>

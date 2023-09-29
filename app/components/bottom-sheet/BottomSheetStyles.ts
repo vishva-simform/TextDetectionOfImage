@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import {
   Colors,
   horizontalScale,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     flex: 1,
     flexDirection: 'row',
-    paddingBottom: verticalScale(30),
+    paddingBottom: Platform.OS === 'ios' ? verticalScale(30) : 0,
     alignItems: 'flex-end',
     justifyContent: 'center',
   },

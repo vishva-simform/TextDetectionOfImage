@@ -10,9 +10,17 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  title: {
+  titleImage: {
     fontSize: moderateScale(20),
-    padding: moderateScale(5),
+    paddingVertical: moderateScale(15),
+    paddingHorizontal: moderateScale(20),
+    color: Colors.black,
+    fontWeight: '500',
+  },
+  titleResult: {
+    fontSize: moderateScale(20),
+    paddingTop: moderateScale(15),
+    paddingHorizontal: moderateScale(20),
     color: Colors.black,
     fontWeight: '500',
   },
@@ -20,7 +28,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   resultWrapper: {
-    padding: moderateScale(20),
+    margin: moderateScale(20),
   },
   textStyle: {
     fontSize: moderateScale(17),
