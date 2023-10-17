@@ -8,9 +8,10 @@
 #ifndef RCTTextDetectionModule_h
 #define RCTTextDetectionModule_h
 
-//  RCTCalendarModule.h
-#import <React/RCTBridgeModule.h>
-@interface RCTTextDetectionModule : NSObject <RCTBridgeModule>
-@end
-
 #endif /* RCTTextDetectionModule_h */
+
+#import <React/RCTBridgeModule.h>
+
+@interface RCTTextDetectionModule : NSObject <RCTBridgeModule>
+
+@end
