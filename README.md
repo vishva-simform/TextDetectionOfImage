@@ -1,6 +1,6 @@
 #### 🎬 Preview
 
-## ![Default Absolute](./app/assets/gif/result.gif)
+![](https://github.com/vishva-simform/TextDetectionOfImage/blob/develop/gif/result.gif)
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
